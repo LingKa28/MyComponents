@@ -1,0 +1,53 @@
+.pressable {
+  display: inline-block;
+  position: relative;
+  // width: 200px;
+  // height: 200px;
+  // border: 1px dashed black;
+}
+
+.ripple-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  opacity: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ripple-enter {
+  opacity: .1;
+  animation: ripple-enter 10 * 100ms cubic-bezier(.4, 0, .2, 1);
+}
+
+.ripple-exit {
+  opacity: 0;
+  animation: ripple-exit 8 * 100ms cubic-bezier(.2, 0, .2, 1);
+}
+
+@keyframes ripple-enter {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ripple-exit {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
