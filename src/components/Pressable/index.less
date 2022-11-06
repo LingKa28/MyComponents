@@ -1,3 +1,5 @@
+@import '../../global.less';
+
 .pressable {
   display: inline-block;
   position: relative;
@@ -19,12 +21,13 @@
 .ripple {
   position: absolute;
   opacity: 0;
+  background-color: @main-color;
   border-radius: 50%;
   pointer-events: none;
 }
 
 .ripple-enter {
-  opacity: .1;
+  opacity: .2;
   animation: ripple-enter 10 * 100ms cubic-bezier(.4, 0, .2, 1);
 }
 
