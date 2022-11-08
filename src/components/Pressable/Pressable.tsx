@@ -18,11 +18,15 @@ const getId = () => {
   return id++;
 }
 
-const Pressable: React.FC<PressableData> = ({ color, borderRadius, children }) => {
+const Pressable: React.FC<PressableData> = ({
+  color = 'primary',
+  borderRadius,
+  children,
+}) => {
   const exitAnimationTime = 10; // *100ms
   const [rippleArray, setRippleArray] = useState<Array<RippleData>>([]);
   const rippleWrapperEl = useRef<HTMLDivElement>(null);
-  
+
   const handleMouseDown = ({ clientX, clientY }: React.MouseEvent<HTMLDivElement>) => {
     const key = getId();
     const rippleWrapperData = rippleWrapperEl.current?.getBoundingClientRect();
@@ -66,30 +70,30 @@ const Pressable: React.FC<PressableData> = ({ color, borderRadius, children }) =
   // console.log(children);
 
   return (
+    <div
+      className='pressable'
+      ref={rippleWrapperEl}
+      onMouseDown={handleMouseDown}
+      onMouseUp={deleteRipple}
+      onMouseOut={deleteRipple}
+    >
+      {children}
       <div
-        className='pressable'
-        ref={rippleWrapperEl}
-        onMouseDown={handleMouseDown}
-        onMouseUp={deleteRipple}
-        onMouseOut={deleteRipple}
+        className='ripple-wrapper'
+        style={{ borderRadius: borderRadius }}
       >
-        {children}
-        <div 
-          className='ripple-wrapper'
-          style={{ borderRadius: borderRadius }}
-        >
-          {rippleArray.map(ripple => {
-            return <Ripple
-              key={ripple.key}
-              rippleX={ripple.rippleX}
-              rippleY={ripple.rippleY}
-              rippleSize={ripple.rippleSize}
-              isExiting={ripple.isExiting}
-              color={color}
-            />
-          })}
-        </div>
+        {rippleArray.map(ripple => {
+          return <Ripple
+            key={ripple.key}
+            rippleX={ripple.rippleX}
+            rippleY={ripple.rippleY}
+            rippleSize={ripple.rippleSize}
+            isExiting={ripple.isExiting}
+            color={color}
+          />
+        })}
       </div>
+    </div>
   );
 }
 

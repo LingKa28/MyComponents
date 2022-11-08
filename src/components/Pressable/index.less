@@ -21,9 +21,33 @@
 .ripple {
   position: absolute;
   opacity: 0;
-  background-color: @main-color;
+  background-color: @primary-color;
   border-radius: 50%;
   pointer-events: none;
+
+  &.ripple-color-primary {
+    background-color: fade(@primary-color, 80%);
+  }
+  
+  &.ripple-color-secondary {
+    background-color: fade(@secondary-color, 80%);
+  }
+
+  &.ripple-color-success {
+    background-color: fade(@success-color, 80%);
+  }
+
+  &.ripple-color-error {
+    background-color: fade(@error-color, 80%);
+  }
+
+  &.ripple-color-warning {
+    background-color: fade(@warning-color, 80%);
+  }
+
+  &.ripple-color-info {
+    background-color: fade(@info-color, 80%);
+  }
 }
 
 .ripple-enter {

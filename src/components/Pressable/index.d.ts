@@ -1,5 +1,5 @@
 export interface PressableData {
-  color?: string;
-  borderRadius?: string;
-  children: React.ReactNode;
+  readonly color?: 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | string;
+  readonly borderRadius?: string;
+  readonly children: React.ReactNode;
 }

@@ -3,11 +3,32 @@ interface RippleData {
   readonly rippleY: number;
   readonly rippleSize: number;
   readonly isExiting: boolean;
-  readonly color?: string;
+  readonly color: 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | string;
+
 }
 
 const Ripple: React.FC<RippleData> = rippleData => {
   const { rippleX, rippleY, rippleSize, color, isExiting } = rippleData;
+
+  const getColorClassName = () => {
+    switch (color) {
+      case 'primary':
+        return 'ripple-color-primary';
+      case 'secondary':
+        return 'ripple-color-secondary';
+      case 'success':
+        return 'ripple-color-success';
+      case 'error':
+        return 'ripple-color-error';
+      case 'warning':
+        return 'ripple-color-warning';
+      case 'info':
+        return 'ripple-color-info';
+      default:
+        return '';
+    }
+  }
+  const _color = getColorClassName();
 
   return (
     <span
@@ -15,7 +36,7 @@ const Ripple: React.FC<RippleData> = rippleData => {
       style={{ pointerEvents: 'none' }}
     >
       <span
-        className='ripple ripple-enter'
+        className={`ripple ripple-enter ${_color}`}
         style={{
           width: `${rippleSize}px`,
           height: `${rippleSize}px`,
