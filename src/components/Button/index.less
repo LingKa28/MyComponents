@@ -1,0 +1,238 @@
+@import '../../global.less';
+
+.button {
+  margin: 8px;
+}
+
+button,
+a {
+  display: inline-block;
+  padding: .4em 1em;
+  font-family: sans-serif;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-clip: padding-box;
+  border: none;
+  border-radius: 4px;
+  transition: box-shadow 2.5 * 100ms;
+
+  &.button-size-small {
+    font-size: 0.8125rem;
+    padding: 4px 10px;
+  }
+
+  &.button-size-medium {
+    font-size: 0.875rem;
+    padding: 6px 16px;
+  }
+
+  &.button-size-large {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button-type-contained {
+  color: white;
+  background-color: var(--color);
+  box-shadow: 0 2px 5px .5px hsla(0, 0%, 5%, .3);
+
+  &:hover {
+    box-shadow: 0 4px 5px .5px hsla(0, 0%, 5%, .3);
+  }
+
+  &.button-pressing {
+    box-shadow: 0 7px 8px .5px hsla(0, 0%, 5%, .3);
+  }
+
+  &.button-color-primary {
+    background-color: @primary-color;
+  }
+
+  &.button-color-secondary {
+    background-color: @secondary-color;
+  }
+
+  &.button-color-success {
+    background-color: @success-color;
+  }
+
+  &.button-color-error {
+    background-color: @error-color;
+  }
+
+  &.button-color-warning {
+    background-color: @warning-color;
+  }
+
+  &.button-color-info {
+    background-color: @info-color;
+  }
+
+  &.button-disabled {
+    cursor: not-allowed;
+    color: rgb(166, 166, 166);
+    box-shadow: none;
+    background-image: linear-gradient(rgb(224, 224, 224), rgb(224, 224, 224));
+  }
+}
+
+.button-type-outlined {
+  color: var(--color);
+  background-color: white;
+  border: .5px solid var(--color);
+
+  &:hover {
+    background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+      linear-gradient(var(--color), var(--color));
+  }
+
+  &.button-color-primary {
+    color: @primary-color;
+    border: .5px solid @primary-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@primary-color, @primary-color);
+    }
+  }
+
+  &.button-color-secondary {
+    color: @secondary-color;
+    border: .5px solid @secondary-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@secondary-color, @secondary-color);
+    }
+  }
+
+  &.button-color-success {
+    color: @success-color;
+    border: .5px solid @success-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@success-color, @success-color);
+    }
+  }
+
+  &.button-color-error {
+    color: @error-color;
+    border: .5px solid @error-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@error-color, @error-color);
+    }
+  }
+
+  &.button-color-warning {
+    color: @warning-color;
+    border: .5px solid @warning-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@warning-color, @warning-color);
+    }
+  }
+
+  &.button-color-info {
+    color: @info-color;
+    border: .5px solid @info-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@info-color, @info-color);
+    }
+  }
+
+  &.button-disabled {
+    cursor: not-allowed;
+    color: rgb(189, 189, 189);
+    border-color: rgb(224, 224, 224);
+
+    &:hover {
+      background-image: none;
+    }
+  }
+}
+
+.button-type-text {
+  color: var(--color);
+  background-color: white;
+
+  &:hover {
+    background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+      linear-gradient(var(--color), var(--color));
+  }
+
+  &.button-color-primary {
+    color: @primary-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@primary-color, @primary-color);
+    }
+  }
+
+  &.button-color-secondary {
+    color: @secondary-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@secondary-color, @secondary-color);
+    }
+  }
+
+  &.button-color-success {
+    color: @success-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@success-color, @success-color);
+    }
+  }
+
+  &.button-color-error {
+    color: @error-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@error-color, @error-color);
+    }
+  }
+
+  &.button-color-warning {
+    color: @warning-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@warning-color, @warning-color);
+    }
+  }
+
+  &.button-color-info {
+    color: @info-color;
+
+    &:hover {
+      background-image: linear-gradient(hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85)),
+        linear-gradient(@info-color, @info-color);
+    }
+  }
+
+  &.button-disabled {
+    cursor: not-allowed;
+    color: rgb(209, 209, 209);
+
+    &:hover {
+      background-image: none;
+    }
+  }
+}
