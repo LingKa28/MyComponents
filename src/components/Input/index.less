@@ -1,0 +1,53 @@
+@import "../../global.less";
+
+.input-container {
+  width: 300px;
+  box-sizing: border-box;
+  position: relative;
+  font: 1rem / 1.4375em sans-serif;
+  // font-size: 1rem;
+  // line-height: 1.4375em;
+  // font-family: sans-serif;
+  letter-spacing: 0.00938em;
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translate(0, -50%);
+  padding: 4px ;
+  color: hsl(0, 0%, 60%);
+  font: inherit;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  box-sizing: inherit;
+  padding: 10px 14px 6px;
+  color: hsl(0, 0%, 10%);
+  font: inherit;
+  border: .5px solid hsl(0, 0%, 70%);
+  border-radius: 4px;
+  outline: none;
+  cursor: text;
+
+  &:hover {
+    border-color: black;
+  }
+
+  &:focus {
+    border: 1.4px solid @primary-color;
+
+    &+label {
+      top: 0;
+      color: @primary-color;
+      font-size: .5rem;
+      line-height: 1;
+      background-color: white;
+      transition: all .3s;
+      // border: .5px dashed black;
+    }
+  }
+}
