@@ -1,14 +1,14 @@
-import Pressable from "./components/Pressable/Pressable";
+// import Pressable from "./components/Pressable/Pressable";
+import Button from "./components/Button/Button";
+import Input from "./components/Input/Input";
 import "./App.less";
 
 function App() {
   return (
-    <Pressable
-      color='hsl(0, 0%, 40%)'
-      borderRadius="10px"
-    >
-      <div id="child" />
-    </Pressable>
+    <>
+      <Button>button</Button>
+      <Input />
+    </>
   );
 }
 
