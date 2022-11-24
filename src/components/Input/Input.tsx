@@ -11,7 +11,7 @@ const Input: React.FC<InputProps> = ({
     <div className="input-container">
       <input className={`input-type-${type}`} />
       <label className={`input-type-${type}`}>Lable</label>
-      <div className="input-border-bottom" />
+      <div className="input-underline" />
     </div>
   );
 }

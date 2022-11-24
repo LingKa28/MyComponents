@@ -1,10 +1,10 @@
 @import "../../global.less";
 
 .input-container {
+  position: relative;
+  box-sizing: border-box;
   width: 300px;
   margin: 10px;
-  box-sizing: border-box;
-  position: relative;
   font: 1rem / 1.4375em sans-serif;
   letter-spacing: 0.00938em;
 }
@@ -29,23 +29,19 @@ input {
   width: 100%;
   box-sizing: inherit;
   padding: 10px 14px 6px;
+  background-clip: padding-box;
   font: inherit;
   outline: none;
-  cursor: text;  
+  cursor: text;
 
-  // &:focus {
-  //   border: 1.4px solid @primary-color;
-
-  //   &+label {
-  //     top: 0;
-  //     color: @primary-color;
-  //     font-size: .5rem;
-  //     line-height: 1;
-  //     background-color: white;
-  //     transition: all .3s;
-  //     // border: .5px dashed black;
-  //   }
-  // }
+  &:focus+label {
+    top: 0;
+    color: @primary-color;
+    font-size: .5rem;
+    line-height: 1;
+    background-color: white;
+    transition: top .25s, font-size .5s;
+  }
 
   &.input-type-outlined {
     border: .5px solid hsl(0, 0%, 70%);
@@ -57,19 +53,7 @@ input {
 
     &:focus {
       border: 1.4px solid @primary-color;
-  
-      &+label {
-        top: 0;
-        color: @primary-color;
-        font-size: .5rem;
-        line-height: 1;
-        background-color: white;
-        transition: top .25s, font-size .5s;
-        // border: .5px dashed black;
-      }
-  
     }
-
   }
 
   &.input-type-filled {
@@ -84,21 +68,15 @@ input {
 
     &:focus {
       &+label {
-        top: 0;
-        color: @primary-color;
-        font-size: .5rem;
-        line-height: 1;
-        border-radius: 4px;
         background-color: hsl(0, 0%, 95%);
-        transition: top .25s, font-size .5s;
-        // border: .5px dashed black;
+        border-radius: 4px;
       }
-    }
 
-    &:focus ~ div::before,
-    &:focus ~ div::after {
-      width: 50%;
-      transition: width .4s;
+      &~div::before,
+      &~div::after {
+        width: 50%;
+        transition: width .4s;
+      }
     }
   }
 
@@ -113,26 +91,19 @@ input {
 
     &:focus {
       &+label {
-        top: 0;
-        color: @primary-color;
-        font-size: .5rem;
-        line-height: 1;
-        border-radius: 4px;
         background-color: transparent;
-        transition: top .25s, font-size .5s;
-        // border: .5px dashed black;
       }
-    }
 
-    &:focus ~ div::before,
-    &:focus ~ div::after {
-      width: 50%;
-      transition: width .4s;
+      &~div::before,
+      &~div::after {
+        width: 50%;
+        transition: width .4s;
+      }
     }
   }
 }
 
-.input-border-bottom {
+.input-underline {
   pointer-events: none;
 
   &::before,
