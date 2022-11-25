@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./index.less";
 
 type InputProps = {
@@ -17,18 +17,32 @@ const Input: React.FC<InputProps> = ({
   lable = 'Lable',
 }) => {
   const [_value, _setValue] = useState<string>(defaultValue);
-  console.log(_value);
-  
 
   const getLableStyle = () => {
-    return (
-      _value ? {
-        top: '0',
-        fontSize: '.5rem',
-        lineHeight: '1',
-        backgroundColor: 'white',
-      } : {}
-    )
+    const lableStyle: React.CSSProperties = {
+      top: '0',
+      fontSize: '.5rem',
+      lineHeight: '1',
+    };
+
+    switch (type) {
+      case 'outlined':
+        lableStyle.backgroundColor = 'white';
+        break;
+      case 'filled':
+        lableStyle.padding = '4px 8px';
+        lableStyle.backgroundColor = 'hsl(0, 0%, 95%)';
+        lableStyle.borderRadius = '4px';
+        break;
+      case 'standard':
+        lableStyle.backgroundColor = 'transparent';
+        break;
+      default:
+        lableStyle.backgroundColor = 'white';
+        break;
+    };
+
+    return _value ? lableStyle : {};
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
