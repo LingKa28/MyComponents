@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./index.less";
 
 type InputProps = {
@@ -16,6 +16,7 @@ const Input: React.FC<InputProps> = ({
   type = 'outlined',
   lable = 'Lable',
 }) => {
+  const [isFocus, setIsFocus] = useState<boolean>(false);
   const [_value, _setValue] = useState<string>(defaultValue);
 
   const getLableStyle = () => {
@@ -55,17 +56,21 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className="input-container">
       <input
+        required
         className={`input-type-${type}`}
         defaultValue={defaultValue}
+        value={_value}
         onChange={handleChange}
+        onFocus={() => setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
       />
       <label
-        className={`input-type-${type}`}
+        className={`input-type-${type} ${isFocus ? 'input-focus' : ''}`}
         style={getLableStyle()}
       >
         {lable}
       </label>
-      <div className="input-underline" />
+      <div className={`input-underline ${isFocus ? 'input-focus' : ''}`} />
     </div>
   );
 }

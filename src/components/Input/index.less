@@ -11,13 +11,32 @@
 
 label {
   position: absolute;
-  top: 50%;
+  top: 21px;
   left: 14px;
   transform: translate(0, -50%);
   padding: 4px;
   color: hsl(0, 0%, 60%);
   font: inherit;
   pointer-events: none;
+
+  &.input-focus {
+    top: 0;
+    color: @primary-color;
+    font-size: .5rem;
+    line-height: 1;
+    background-color: white;
+    transition: top .25s, font-size .6s;
+
+    &.input-type-filled {
+      padding: 4px 8px;
+      background-color: hsl(0, 0%, 95%);
+      border-radius: 4px;
+    }
+
+    &.input-type-standard {
+      background-color: transparent;
+    }
+  }
 
   &.input-type-standard {
     left: 4px;
@@ -33,15 +52,6 @@ input {
   font: inherit;
   outline: none;
   cursor: text;
-
-  &:focus+label {
-    top: 0;
-    color: @primary-color;
-    font-size: .5rem;
-    line-height: 1;
-    background-color: white;
-    transition: top .25s, font-size .6s;
-  }
 
   &.input-type-outlined {
     border: .5px solid hsl(0, 0%, 70%);
@@ -65,20 +75,6 @@ input {
     &:hover {
       border-bottom-color: black;
     }
-
-    &:focus {
-      &+label {
-        padding: 4px 8px;
-        background-color: hsl(0, 0%, 95%);
-        border-radius: 4px;
-      }
-
-      &~div::before,
-      &~div::after {
-        width: 50%;
-        transition: width .4s;
-      }
-    }
   }
 
   &.input-type-standard {
@@ -88,18 +84,6 @@ input {
 
     &:hover {
       border-bottom-color: black;
-    }
-
-    &:focus {
-      &+label {
-        background-color: transparent;
-      }
-
-      &~div::before,
-      &~div::after {
-        width: 50%;
-        transition: width .4s;
-      }
     }
   }
 }
@@ -124,5 +108,14 @@ input {
 
   &::after {
     left: 50%;
+  }
+}
+
+.input-focus {
+  &.input-underline {
+    &::before, &::after {
+      width: 50%;
+      transition: width .4s;
+    }
   }
 }
