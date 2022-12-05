@@ -19,6 +19,10 @@ label {
   font: inherit;
   pointer-events: none;
 
+  &.input-type-standard {
+    left: 4px;
+  }
+
   &.input-focus {
     top: 0;
     color: @primary-color;
@@ -38,8 +42,21 @@ label {
     }
   }
 
-  &.input-type-standard {
-    left: 4px;
+  &.input-not-null {
+    top: 0;
+    font-size: .5rem;
+    line-height: 1;
+    background-color: white;
+
+    &.input-type-filled {
+      padding: 4px 8px;
+      background-color: hsl(0, 0%, 95%);
+      border-radius: 4px;
+    }
+
+    &.input-type-standard {
+      background-color: transparent;
+    }
   }
 }
 
