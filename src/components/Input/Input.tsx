@@ -7,6 +7,7 @@ type InputProps = {
   readonly onChange?: React.ChangeEventHandler<HTMLInputElement>;
   readonly type?: 'outlined' | 'filled' | 'standard';
   readonly lable?: string;
+  readonly disabled?: boolean;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -15,6 +16,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   type = 'outlined',
   lable = 'Lable',
+  disabled = false,
 }) => {
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const [_value, _setValue] = useState<string>(defaultValue);
@@ -29,7 +31,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className="input-container">
       <input
-        className={`input-type-${type}`}
+        className={`input-type-${type} ${disabled ? 'input-disabled' : ''}`}
         defaultValue={defaultValue}
         value={_value}
         onChange={handleChange}
@@ -37,7 +39,12 @@ const Input: React.FC<InputProps> = ({
         onBlur={() => setIsFocus(false)}
       />
       <label
-        className={`input-type-${type} ${isFocus ? 'input-focus' : ''} ${_value ? 'input-not-null' : ''}`}
+        className={`
+                    input-type-${type} 
+                    ${isFocus ? 'input-focus' : ''} 
+                    ${_value ? 'input-not-null' : ''}
+                    ${disabled ? 'input-disabled' : ''}
+        `}
       >
         {lable}
       </label>

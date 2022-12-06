@@ -1,5 +1,7 @@
 @import "../../global.less";
 
+@disabled-color: hsl(0, 0, 70%);
+
 .input-container {
   position: relative;
   box-sizing: border-box;
@@ -58,6 +60,14 @@ label {
       background-color: transparent;
     }
   }
+
+  &.input-disabled {
+    color: @disabled-color;
+
+    &.input-type-filled {
+      background: hsl(0, 0, 90%);
+    }
+  }
 }
 
 input {
@@ -69,6 +79,11 @@ input {
   font: inherit;
   outline: none;
   cursor: text;
+  
+  &.input-disabled {
+    pointer-events: none;
+    color: @disabled-color;
+  }
 
   &.input-type-outlined {
     border: .5px solid hsl(0, 0%, 70%);
@@ -81,6 +96,10 @@ input {
     &:focus {
       border: 1.4px solid @primary-color;
     }
+
+    &.input-disabled {
+      border-color: @disabled-color;
+    }
   }
 
   &.input-type-filled {
@@ -88,9 +107,14 @@ input {
     border-bottom: 1.5px solid hsl(0, 0%, 70%);
     border-radius: 4px 4px 0 0;
     background: hsl(0, 0%, 95%);
-
+  
     &:hover {
       border-bottom-color: black;
+    }
+
+    &.input-disabled {
+      background: hsl(0, 0, 90%);
+      border-color: @disabled-color;
     }
   }
 
@@ -98,9 +122,13 @@ input {
     padding-left: 4px;
     border: none;
     border-bottom: 1.5px solid hsl(0, 0%, 70%);
-
+   
     &:hover {
       border-bottom-color: black;
+    }
+    
+    &.input-disabled {
+      border-color: @disabled-color;
     }
   }
 }
